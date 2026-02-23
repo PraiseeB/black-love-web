@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Noir – Black Love Dating Platform
 
-## Getting Started
+A secure, full-stack dating platform built for the Black community in Europe.
 
-First, run the development server:
+This project focuses on authentication architecture, secure database design, and modern Next.js full-stack patterns.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 16 (App Router)
+- TypeScript
+- Supabase (Auth + PostgreSQL)
+- Row Level Security (RLS)
+- Middleware-based route protection
+- Git & GitHub
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔐 Authentication & Security
 
-To learn more about Next.js, take a look at the following resources:
+- Email/password authentication via Supabase
+- Protected dashboard route
+- Middleware session validation
+- Row Level Security policies on profiles table
+- Users can only read/write their own profile data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗂 Database Design
 
-## Deploy on Vercel
+### profiles table
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- id (uuid, linked to auth.uid())
+- username (required)
+- bio
+- location
+- created_at (timestamptz)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+RLS policies ensure users:
+- Can insert their own profile
+- Can read their own profile
+- Can update their own profile
+
+---
+
+## 🧠 Architecture Focus
+
+This project demonstrates:
+
+- Secure client-server auth flow
+- Middleware route guarding
+- Proper environment variable handling
+- Separation of UI and data layer
+- Production-ready folder structure
+
+---
+
+## 🛠 In Progress
+
+- Auto-create profile on signup
+- Profile editing UI
+- User discovery
+- Matching system
+- Messaging system
+
+---
+
+## 🎯 Goal
+
+To build a scalable, security-focused full-stack dating application using modern TypeScript and Supabase patterns.
